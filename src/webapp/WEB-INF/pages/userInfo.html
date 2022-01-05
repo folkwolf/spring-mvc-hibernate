@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info about user</title>
+</head>
+<body>
+    <h2>Информация о пользователе:</h2><br>
+    <div>Имя: <span th:text="${user.name}" /></div>
+    <div>Фамилия: <span th:text="${user.surname}" /></div>
+    <div>Возраст: <span th:text="${user.age}" /></div>
+    <a th:href="@{/user/{id}/edit(id=${user.getId()})}">Редактировать юзера</a><br>
+    <a th:href="@{/user/{id}/delete(id=${user.getId()})}">Удалить юзера</a>
+</body>
+</html>
