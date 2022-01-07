@@ -16,7 +16,6 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public User getUser(int id) {
         User user = entityManager.find(User.class, id);
-        entityManager.detach(user);
         return user;
     }
 
@@ -32,10 +31,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public void updateUser(User user) {
-        User oldUser = entityManager.find(User.class, user.getId());
-        oldUser.setAge(user.getAge());
-        oldUser.setName(user.getName());
-        oldUser.setSurname(user.getSurname());
+        entityManager.merge(user);
     }
 
     @Override
